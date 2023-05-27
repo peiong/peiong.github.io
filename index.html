@@ -229,14 +229,14 @@
       <h1 class="index-header">
         
         <a href="/2023/05/28/SpringBoot_Back_To_Front/" target="_self">
-          SpringBoot_Back_To_Front
+          SpingBoot后端返回给前端的设计模式
         </a>
       </h1>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/05/28/SpringBoot_Back_To_Front/" target="_self">
         <div>
-          SpringBoot后端返回数据给前端的设计模式后端数据都是以JSON的形式给前端返回，一般都是通过@ResponseBody来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。   可以定义一个Result类，用来专门管理返回数据的:   @Data public class Result&l
+          后端数据都是以JSON的形式给前端返回，一般都是通过@ResponseBody来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。   可以定义一个Result类，用来专门管理返回数据的:   @Data public class Result&lt;T> &#123;     private
         </div>
       </a>
 

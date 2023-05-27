@@ -16,15 +16,15 @@
   <meta name="author" content="Paris">
   <meta name="keywords" content="">
   
-    <meta name="description" content="SpringBoot后端返回数据给前端的设计模式后端数据都是以JSON的形式给前端返回，一般都是通过@ResponseBody来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。   可以定义一个Result类，用来专门管理返回数据的:   @Data public class Result&amp;l">
+    <meta name="description" content="后端数据都是以JSON的形式给前端返回，一般都是通过@ResponseBody来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。   可以定义一个Result类，用来专门管理返回数据的:   @Data public class Result&lt;T&gt; &amp;#123;     private">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot_Back_To_Front">
+<meta property="og:title" content="SpingBoot后端返回给前端的设计模式">
 <meta property="og:url" content="https://peiong.github.io/2023/05/28/SpringBoot_Back_To_Front/index.html">
 <meta property="og:site_name" content="Paris">
-<meta property="og:description" content="SpringBoot后端返回数据给前端的设计模式后端数据都是以JSON的形式给前端返回，一般都是通过@ResponseBody来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。   可以定义一个Result类，用来专门管理返回数据的:   @Data public class Result&amp;l">
+<meta property="og:description" content="后端数据都是以JSON的形式给前端返回，一般都是通过@ResponseBody来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。   可以定义一个Result类，用来专门管理返回数据的:   @Data public class Result&lt;T&gt; &amp;#123;     private">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-27T18:56:58.000Z">
-<meta property="article:modified_time" content="2023-05-27T19:25:51.720Z">
+<meta property="article:modified_time" content="2023-05-27T19:32:08.665Z">
 <meta property="article:author" content="Paris">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -32,7 +32,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>SpringBoot_Back_To_Front - Paris</title>
+  <title>SpingBoot后端返回给前端的设计模式 - Paris</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -206,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SpringBoot_Back_To_Front"></span>
+            <span id="subtitle" data-typed-text="SpingBoot后端返回给前端的设计模式"></span>
           
         </div>
 
@@ -278,12 +278,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SpringBoot_Back_To_Front</h1>
+            <h1 style="display: none">SpingBoot后端返回给前端的设计模式</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="SpringBoot后端返回数据给前端的设计模式"><a href="#SpringBoot后端返回数据给前端的设计模式" class="headerlink" title="SpringBoot后端返回数据给前端的设计模式"></a>SpringBoot后端返回数据给前端的设计模式</h3><p><em><strong>后端数据都是以<font color="#FC78C4">JSON</font>的形式给前端返回，一般都是通过<font color="#FC78C4">@ResponseBody</font>来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。</strong></em></p>
+                <p><em><strong>后端数据都是以<font color="#FC78C4">JSON</font>的形式给前端返回，一般都是通过<font color="#FC78C4">@ResponseBody</font>来进行返回。每次返回都要重新格式化一下json的格式。如果接受请求的方法多了，这种返回方式无疑是效率很低的。那么就需要一个类来吧这些返回的格式统一管理起来。</strong></em></p>
 <hr>
 <font color="#FC78C4">
 可以定义一个Result类，用来专门管理返回数据的:
@@ -359,6 +359,7 @@
 <span class="token comment">//这样在后端返回的时候，只需要给定CodeMsg里面的静态常量就可以了。可以根据自己需要进行定义。</span>
 <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">success</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token class-name">CodeMsg</span><span class="token punctuation">.</span><span class="token constant">SERVER_ERROR</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
                 
               </div>
             
@@ -375,7 +376,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SpringBoot_Back_To_Front</div>
+      <div>SpingBoot后端返回给前端的设计模式</div>
       <div>https://peiong.github.io/2023/05/28/SpringBoot_Back_To_Front/</div>
     </div>
     <div class="license-meta">
