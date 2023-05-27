@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://f005.backblazeb2.com/file/img-forWeb/uPic/icons8-kiwi-256.png">
+  <link rel="icon" href="https://f005.backblazeb2.com/file/img-forWeb/uPic/icons8-kiwi-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Paris">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="My Tmux(Created By Jaxx Zhang)  InstallationRequirements:  tmux &gt;&#x3D; 2.1 (soon &gt;&#x3D; 2.4) running inside Linux, Mac, OpenBSD, Cygwinor WSL awk, perl and sed outside of tmux, $TERM must be set to xter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Paris">
+<meta property="og:url" content="https://peiong.github.io/2023/05/28/my-tmux/index.html">
+<meta property="og:site_name" content="Paris">
+<meta property="og:description" content="My Tmux(Created By Jaxx Zhang)  InstallationRequirements:  tmux &gt;&#x3D; 2.1 (soon &gt;&#x3D; 2.4) running inside Linux, Mac, OpenBSD, Cygwinor WSL awk, perl and sed outside of tmux, $TERM must be set to xter">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/553208/19740585/85596a5a-9bbf-11e6-8aa1-7c8d9829c008.gif">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/553208/9890858/ee3c0ca6-5c02-11e5-890e-05d825a46c92.gif">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/553208/9890797/8dffe542-5c02-11e5-9c06-a25b452e6fcc.gif">
+<meta property="article:published_time" content="2023-05-27T22:48:56.000Z">
+<meta property="article:modified_time" content="2023-05-27T22:51:05.937Z">
+<meta property="article:author" content="Paris">
+<meta property="article:tag" content="tmux">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/553208/19740585/85596a5a-9bbf-11e6-8aa1-7c8d9829c008.gif">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Paris</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"peiong.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":false,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <!-- <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a> -->
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style=" justify-content: center;
+    align-items: center;
+  ">
+        <ul class="navbar-nav ml-auto text-center" style="margin-left:0 !important">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-28 06:48" pubdate>
+          2023年5月28日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          48 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="My-Tmux"><a href="#My-Tmux" class="headerlink" title="My Tmux"></a>My Tmux</h1><p>(Created By <a target="_blank" rel="noopener" href="https://github.com/Jaxx4Fun">Jaxx Zhang</a>)</p>
+<p><img src="https://cloud.githubusercontent.com/assets/553208/19740585/85596a5a-9bbf-11e6-8aa1-7c8d9829c008.gif" alt="Screenshot"></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Requirements:</p>
+<ul>
+<li>tmux <strong><code>&gt;= 2.1</code></strong> (soon <code>&gt;= 2.4</code>) running inside Linux, Mac, OpenBSD, Cygwin<br>or WSL</li>
+<li>awk, perl and sed</li>
+<li>outside of tmux, <code>$TERM</code> must be set to <code>xterm-256color</code></li>
+</ul>
+<p>To install, run the following from your terminal: (you may want to backup your<br>existing <code>~/.tmux.conf</code> first)</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token builtin class-name">cd</span>
+$ <span class="token function">git</span> clone https://github.com/gpakosz/.tmux.git
+$ <span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">-f</span> .tmux/.tmux.conf
+$ <span class="token function">cp</span> .tmux/.tmux.conf.local <span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
+<p>Then proceed to <a href="#enabling-the-powerline-look">customize</a> your <code>~/.tmux.conf.local</code> copy.</p>
+<p>If you’re a Vim user, setting the <code>$EDITOR</code> environment variable to <code>vim</code> will<br>enable and further customize the vi-style key bindings (see tmux manual).</p>
+<p>If you’re new to tmux, I recommend you read <a target="_blank" rel="noopener" href="https://pragprog.com/book/bhtmux2/tmux-2">tmux 2: Productive Mouse-Free<br>Development</a> by <a target="_blank" rel="noopener" href="https://twitter.com/bphogan">@bphogan</a>.</p>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><ul>
+<li><p><strong>I’m running tmux <code>HEAD</code> and things don’t work properly. What should I do?</strong></p>
+<p>Please open an issue describing what doesn’t work with upcoming tmux. I’ll do<br>my best to address it.</p>
+</li>
+<li><p><strong>Status line is broken and&#x2F;or gets duplicated at the bottom of the screen.<br>What gives?</strong></p>
+<p>This particularly happens on Linux when the distribution provides a version<br>of glib that received Unicode 9.0 upgrades (glib <code>&gt;= 2.50.1</code>) while providing<br>a version of glibc that didn’t (glibc <code>&lt; 2.26</code>). You may also configure<br><code>LC_CTYPE</code> to use an <code>UTF-8</code> locale. Typically VTE based terminal emulators<br>rely on glib’s <code>g_unichar_iswide()</code> function while tmux relies on glibc’s<br><code>wcwidth()</code> function. When these two functions disagree, display gets messed<br>up.</p>
+<p>This can also happen on macOS when using iTerm2 and “Use Unicode version 9<br>character widths” is enabled in <code>Preferences... &gt; Profiles &gt; Text</code></p>
+<p>For that reason, the default <code>~/.tmux.conf.local</code> file stopped using Unicode<br>characters for which width changed in between Unicode 8.0 and 9.0 standards,<br>as well as Emojis.</p>
+</li>
+<li><p><strong>I installed Powerline and&#x2F;or (patched) fonts but can’t see Powerline<br>symbols.</strong></p>
+<p>First, you don’t need to install Powerline. You only need fonts patched with<br>Powerline symbols or the standalone <code>PowerlineSymbols.otf</code> font. Then make<br>sure your <code>~/.tmux.conf.local</code> copy uses the right code points for<br><code>tmux_conf_theme_left_separator_XXX</code> values.</p>
+</li>
+<li><p><strong>I’m using Bash On Windows (WSL), colors and Powerline look are broken.</strong></p>
+<p>There is currently a <a target="_blank" rel="noopener" href="https://github.com/Microsoft/BashOnWindows/issues/1681">bug</a> in the new console powering Bash On Windows<br>preventing text attributes (bold, underscore, …) to combine properly with<br>colors. The workaround is to search your <code>~/.tmux.conf.local</code> copy and<br>replace attributes with <code>&#39;none&#39;</code>.</p>
+<p>Also, until Window’s console replaces its GDI based render with a DirectWrite<br>one, Powerline symbols will be broken.</p>
+<p>The alternative is to use the <a target="_blank" rel="noopener" href="https://github.com/mintty/wsltty">Mintty terminal for WSL</a>.</p>
+</li>
+</ul>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li><code>C-a</code> acts as secondary prefix, while keeping default <code>C-b</code> prefix</li>
+<li>visual theme inspired by <a target="_blank" rel="noopener" href="https://github.com/Lokaltog/powerline">Powerline</a></li>
+<li><a target="_blank" rel="noopener" href="http://pempek.net/articles/2013/04/14/maximizing-tmux-pane-new-window/">maximize any pane to a new window with <code>&lt;prefix&gt; +</code></a></li>
+<li>SSH&#x2F;Mosh aware username and hostname status line information</li>
+<li>mouse mode toggle with <code>&lt;prefix&gt; m</code></li>
+<li>automatic usage of <a target="_blank" rel="noopener" href="https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard"><code>reattach-to-user-namespace</code></a><br>if available</li>
+<li>laptop battery status line information</li>
+<li>uptime status line information</li>
+<li>optional highlight of focused pane (tmux <code>&gt;= 2.1</code>)</li>
+<li>configurable new windows and panes behavior (optionally retain current path)</li>
+<li>SSH&#x2F;Mosh aware split pane (reconnects to remote server)</li>
+<li>copy to OS clipboard (needs <a target="_blank" rel="noopener" href="https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard"><code>reattach-to-user-namespace</code></a><br>on macOS, <code>xsel</code> or <code>xclip</code> on Linux)</li>
+<li>support for 4-digit hexadecimal Unicode characters (requires <code>perl</code> or Bash &gt;&#x3D; 4.1.2)</li>
+<li><a target="_blank" rel="noopener" href="https://facebook.github.io/PathPicker/">Facebook PathPicker</a> integration if available</li>
+<li><a target="_blank" rel="noopener" href="https://packages.debian.org/stable/misc/urlview">Urlview</a> integration if available</li>
+</ul>
+<p>The “maximize any pane to a new window with <code>&lt;prefix&gt; +</code>“ feature is different<br>from builtin <code>resize-pane -Z</code> as it allows you to further split a maximized<br>pane. It’s also more flexible by allowing you to maximize a pane to a new<br>window, then change window, then go back and the pane is still in maximized<br>state in its own window. You can then minimize a pane by using <code>&lt;prefix&gt; +</code><br>either from the source window or the maximized window.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/553208/9890858/ee3c0ca6-5c02-11e5-890e-05d825a46c92.gif" alt="Maximize pane"></p>
+<p>Mouse mode allows you to set the active window, set the active pane, resize<br>panes and automatically switches to copy-mode to select text.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/553208/9890797/8dffe542-5c02-11e5-9c06-a25b452e6fcc.gif" alt="Mouse mode"></p>
+<h2 id="Bindings"><a href="#Bindings" class="headerlink" title="Bindings"></a>Bindings</h2><p>tmux may be controlled from an attached client by using a key combination of a<br>prefix key, followed by a command key. This configuration uses <code>C-a</code> as a<br>secondary prefix while keeping <code>C-b</code> as the default prefix. In the following<br>list of key bindings:</p>
+<ul>
+<li><code>&lt;prefix&gt;</code> means you have to either hit <kbd>Ctrl</kbd> + <kbd>a</kbd> or <kbd>Ctrl</kbd> + <kbd>b</kbd></li>
+<li><code>&lt;prefix&gt; c</code> means you have to hit <kbd>Ctrl</kbd> + <kbd>a</kbd> or <kbd>Ctrl</kbd> + <kbd>b</kbd> followed by <kbd>c</kbd></li>
+<li><code>&lt;prefix&gt; C-c</code> means you have to hit <kbd>Ctrl</kbd> + <kbd>a</kbd> or <kbd>Ctrl</kbd> + <kbd>b</kbd> followed by <kbd>Ctrl</kbd> + <kbd>c</kbd></li>
+</ul>
+<p>This configuration uses the following bindings:</p>
+<ul>
+<li><p><code>&lt;prefix&gt; e</code> opens <code>~/.tmux.conf.local</code> with the editor defined by the<br><code>$EDITOR</code> environment variable (defaults to <code>vim</code> when empty)</p>
+</li>
+<li><p><code>&lt;prefix&gt; r</code> reloads the configuration</p>
+</li>
+<li><p><code>C-l</code> clears both the screen and the tmux history</p>
+</li>
+<li><p><code>&lt;prefix&gt; C-c</code> creates a new session</p>
+</li>
+<li><p><code>&lt;prefix&gt; C-f</code> lets you switch to another session by name</p>
+</li>
+<li><p><code>&lt;prefix&gt; C-h</code> and <code>&lt;prefix&gt; C-l</code> let you navigate windows (default<br><code>&lt;prefix&gt; n</code> and <code>&lt;prefix&gt; p</code> are unbound)</p>
+</li>
+<li><p><code>&lt;prefix&gt; Tab</code> brings you to the last active window</p>
+</li>
+<li><p><code>&lt;prefix&gt; -</code> splits the current pane vertically</p>
+</li>
+<li><p><code>&lt;prefix&gt; _</code> splits the current pane horizontally</p>
+</li>
+<li><p><code>&lt;prefix&gt; h</code>, <code>&lt;prefix&gt; j</code>, <code>&lt;prefix&gt; k</code> and <code>&lt;prefix&gt; l</code> let you navigate<br>panes ala Vim</p>
+</li>
+<li><p><code>&lt;prefix&gt; H</code>, <code>&lt;prefix&gt; J</code>, <code>&lt;prefix&gt; K</code>, <code>&lt;prefix&gt; L</code> let you resize panes</p>
+</li>
+<li><p><code>&lt;prefix&gt; &lt;</code> and <code>&lt;prefix&gt; &gt;</code> let you swap panes</p>
+</li>
+<li><p><code>&lt;prefix&gt; +</code> maximizes the current pane to a new window</p>
+</li>
+<li><p><code>&lt;prefix&gt; m</code> toggles mouse mode on or off</p>
+</li>
+<li><p><code>&lt;prefix&gt; U</code> launches Urlview (if available)</p>
+</li>
+<li><p><code>&lt;prefix&gt; F</code> launches Facebook PathPicker (if available)</p>
+</li>
+<li><p><code>&lt;prefix&gt; Enter</code> enters copy-mode</p>
+</li>
+<li><p><code>&lt;prefix&gt; b</code> lists the paste-buffers</p>
+</li>
+<li><p><code>&lt;prefix&gt; p</code> pastes from the top paste-buffer</p>
+</li>
+<li><p><code>&lt;prefix&gt; P</code> lets you choose the paste-buffer to paste from</p>
+</li>
+</ul>
+<p>Additionally, <code>copy-mode-vi</code> matches <a target="_blank" rel="noopener" href="https://github.com/gpakosz/.vim.git">my own Vim configuration</a></p>
+<p>Bindings for <code>copy-mode-vi</code>:</p>
+<ul>
+<li><code>v</code> begins selection &#x2F; visual mode</li>
+<li><code>C-v</code> toggles between blockwise visual mode and visual mode</li>
+<li><code>H</code> jumps to the start of line</li>
+<li><code>L</code> jumps to the end of line</li>
+<li><code>y</code> copies the selection to the top paste-buffer</li>
+<li><code>Escape</code> cancels the current operation</li>
+</ul>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>While this configuration tries to bring sane default settings, you may want to<br>customize it further to your needs. Instead of altering the <code>~/.tmux.conf</code> file<br>and diverging from upstream, the proper way is to edit the <code>~/.tmux.conf.local</code><br>file.</p>
+<p>Please refer to the default <code>~/.tmux.conf.local</code> file to know more about<br>variables you can adjust to alter different behaviors. Pressing <code>&lt;prefix&gt; e</code><br>will open <code>~/.tmux.conf.local</code> with the editor defined by the <code>$EDITOR</code><br>environment variable (defaults to <code>vim</code> when empty).</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/tmux/">#tmux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://peiong.github.io/2023/05/28/my-tmux/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Paris</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/05/28/markdown-learning/" title="学习使用Markdown✍️">
+                        <span class="hidden-mobile">学习使用Markdown✍️</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <span> ©2023 Paris </span> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
