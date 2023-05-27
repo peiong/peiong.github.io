@@ -23,13 +23,19 @@
   
   
   <entry>
-    <title>学习使用Markdown✍️</title>
+    <title></title>
     <link href="/2023/05/28/markdown-learning/"/>
     <url>/2023/05/28/markdown-learning/</url>
     
-    <content type="html"><![CDATA[<ul><li>无序列表1</li><li>无序列表2</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="学习-markdown-语法-✍️"><a href="#学习-markdown-语法-✍️" class="headerlink" title="学习 markdown 语法 ✍️"></a>学习 markdown 语法 ✍️</h2><img src="https://api.iconify.design/logos:markdown.svg" width="200" align=left><hr><p>建议使用-来标记无序列表，因为*容易跟粗体和斜体混淆，而+不流行，因此推荐使用-：</p><ul><li>无序列表1</li><li>无序列表2</li></ul><hr><ol><li>有序列表1</li><li>有序列表2</li></ol><p>“ - [ ] “</p><ul><li><input disabled="" type="checkbox"> 看电影</li><li><input disabled="" type="checkbox"> 看小说</li></ul><p><u>这段文字有下划线<u></u></p><p>&#x3D;&#x3D;高亮的内容&#x3D;&#x3D;前后分别使用两个&#x3D;包裹</p><!--我是注释--><p>在typora中，可以自动获取文章的标题来生成目录，当标题修改时，目录会随之自动更新，使用起来非常方便，其使用语法如下。</p><p>( [TOC] )</p><ol><li><p>TOC是Table of Contents的缩写</p></li><li><p>在想插入的位置输入[TOC]，按回车键就可以自动生成文章的目录。</p></li><li></li></ol><hr>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>markdown</tag>
+      
+    </tags>
     
   </entry>
   
