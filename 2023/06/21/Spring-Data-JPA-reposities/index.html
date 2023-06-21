@@ -16,26 +16,24 @@
   <meta name="author" content="Paris">
   <meta name="keywords" content="">
   
-    <meta name="description" content="无序列表1 无序列表2    有序列表1 有序列表2     看电影  看小说  看漫画   下划线     a b c    d e f   h i j   k l m">
+    <meta name="description" content="Respository Bean 是如何创建的JpaRepositoriesRegistrar 激活了 @EnableJpaRepositories 返回了 JpaRepositoryConfiguration  RespositoryBeanDefinitionRegistrarSupport.registerBeanDefinitions 注册Repository Bean (类型是JpaRe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="markdown ⌨️">
-<meta property="og:url" content="https://peiong.github.io/2023/05/28/markdown-learning/index.html">
+<meta property="og:title" content="Spring_Data_JPA">
+<meta property="og:url" content="https://peiong.github.io/2023/06/21/Spring-Data-JPA-reposities/index.html">
 <meta property="og:site_name" content="Paris">
-<meta property="og:description" content="无序列表1 无序列表2    有序列表1 有序列表2     看电影  看小说  看漫画   下划线     a b c    d e f   h i j   k l m">
+<meta property="og:description" content="Respository Bean 是如何创建的JpaRepositoriesRegistrar 激活了 @EnableJpaRepositories 返回了 JpaRepositoryConfiguration  RespositoryBeanDefinitionRegistrarSupport.registerBeanDefinitions 注册Repository Bean (类型是JpaRe">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://api.iconify.design/logos:markdown.svg">
-<meta property="article:published_time" content="2023-05-27T20:13:33.000Z">
-<meta property="article:modified_time" content="2023-06-21T16:18:09.333Z">
+<meta property="article:published_time" content="2023-06-21T12:07:26.000Z">
+<meta property="article:modified_time" content="2023-06-21T13:52:31.379Z">
 <meta property="article:author" content="Paris">
-<meta property="article:tag" content="markdown">
+<meta property="article:tag" content="Spring JPA Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://api.iconify.design/logos:markdown.svg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>markdown ⌨️ - Paris</title>
+  <title>Spring_Data_JPA - Paris</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +207,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="markdown ⌨️"></span>
+            <span id="subtitle" data-typed-text="Spring_Data_JPA"></span>
           
         </div>
 
@@ -220,8 +218,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-28 04:13" pubdate>
-          2023年5月28日 凌晨
+        <time datetime="2023-06-21 20:07" pubdate>
+          2023年6月21日 晚上
         </time>
       </span>
     
@@ -232,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44 字
+          344 字
         
       </span>
     
@@ -243,7 +241,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -281,60 +279,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">markdown ⌨️</h1>
+            <h1 style="display: none">Spring_Data_JPA</h1>
             
             
               <div class="markdown-body">
                 
-                <div align=center>
-<img src="https://api.iconify.design/logos:markdown.svg" width="300" align=center>
-</div>
-
-
-<hr>
-<ul>
-<li>无序列表1</li>
-<li>无序列表2</li>
+                <h3 id="Respository-Bean-是如何创建的"><a href="#Respository-Bean-是如何创建的" class="headerlink" title="Respository Bean 是如何创建的"></a>Respository Bean 是如何创建的</h3><h4 id="JpaRepositoriesRegistrar"><a href="#JpaRepositoriesRegistrar" class="headerlink" title="JpaRepositoriesRegistrar"></a>JpaRepositoriesRegistrar</h4><ul>
+<li>激活了 @EnableJpaRepositories</li>
+<li>返回了 JpaRepositoryConfiguration</li>
 </ul>
-<hr>
-<ol>
-<li>有序列表1</li>
-<li>有序列表2</li>
-</ol>
-<hr>
-<ul>
-<li><input disabled="" type="checkbox"> 看电影</li>
-<li><input disabled="" type="checkbox"> 看小说</li>
-<li><input disabled="" type="checkbox"> 看漫画</li>
+<h4 id="RespositoryBeanDefinitionRegistrarSupport-registerBeanDefinitions"><a href="#RespositoryBeanDefinitionRegistrarSupport-registerBeanDefinitions" class="headerlink" title="RespositoryBeanDefinitionRegistrarSupport.registerBeanDefinitions"></a>RespositoryBeanDefinitionRegistrarSupport.registerBeanDefinitions</h4><ul>
+<li>注册Repository Bean (类型是JpaRepositoryFactoryBean)</li>
 </ul>
-<hr>
-<p><u>下划线</u></p>
-<hr>
-<table>
-<thead>
-<tr>
-<th>a</th>
-<th>b</th>
-<th>c</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>d</td>
-<td>e</td>
-<td>f</td>
-</tr>
-<tr>
-<td>h</td>
-<td>i</td>
-<td>j</td>
-</tr>
-<tr>
-<td>k</td>
-<td>l</td>
-<td>m</td>
-</tr>
-</tbody></table>
-<hr>
+<h4 id="RespositoryConfigurationExtentionSupport-getRepositoryConfiigurations"><a href="#RespositoryConfigurationExtentionSupport-getRepositoryConfiigurations" class="headerlink" title="RespositoryConfigurationExtentionSupport.getRepositoryConfiigurations"></a>RespositoryConfigurationExtentionSupport.getRepositoryConfiigurations</h4><ul>
+<li>取得 Repository 配置</li>
+</ul>
+<h4 id="JpaRepositoryFactory-getTargetRepository"><a href="#JpaRepositoryFactory-getTargetRepository" class="headerlink" title="JpaRepositoryFactory.getTargetRepository"></a>JpaRepositoryFactory.getTargetRepository</h4><ul>
+<li>创建 Repository</li>
+</ul>
 
                 
               </div>
@@ -347,7 +309,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/markdown/">#markdown</a>
+        <a href="/tags/Spring-JPA-Java/">#Spring JPA Java</a>
       
     </div>
   
@@ -359,8 +321,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>markdown ⌨️</div>
-      <div>https://peiong.github.io/2023/05/28/markdown-learning/</div>
+      <div>Spring_Data_JPA</div>
+      <div>https://peiong.github.io/2023/06/21/Spring-Data-JPA-reposities/</div>
     </div>
     <div class="license-meta">
       
@@ -372,7 +334,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月28日</div>
+          <div>2023年6月21日</div>
         </div>
       
       
@@ -404,18 +366,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/28/my-tmux/" title="my tmux">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">my tmux</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/28/SpringBoot_Back_To_Front/" title="SpingBoot design mode">
-                        <span class="hidden-mobile">SpingBoot design mode</span>
+                      <a href="/2023/06/07/my-neovim/" title="my neovim">
+                        <span class="hidden-mobile">my neovim</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

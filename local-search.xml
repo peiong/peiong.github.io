@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Spring_Data_JPA</title>
+    <link href="/2023/06/21/Spring-Data-JPA-reposities/"/>
+    <url>/2023/06/21/Spring-Data-JPA-reposities/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Respository-Bean-是如何创建的"><a href="#Respository-Bean-是如何创建的" class="headerlink" title="Respository Bean 是如何创建的"></a>Respository Bean 是如何创建的</h3><h4 id="JpaRepositoriesRegistrar"><a href="#JpaRepositoriesRegistrar" class="headerlink" title="JpaRepositoriesRegistrar"></a>JpaRepositoriesRegistrar</h4><ul><li>激活了 @EnableJpaRepositories</li><li>返回了 JpaRepositoryConfiguration</li></ul><h4 id="RespositoryBeanDefinitionRegistrarSupport-registerBeanDefinitions"><a href="#RespositoryBeanDefinitionRegistrarSupport-registerBeanDefinitions" class="headerlink" title="RespositoryBeanDefinitionRegistrarSupport.registerBeanDefinitions"></a>RespositoryBeanDefinitionRegistrarSupport.registerBeanDefinitions</h4><ul><li>注册Repository Bean (类型是JpaRepositoryFactoryBean)</li></ul><h4 id="RespositoryConfigurationExtentionSupport-getRepositoryConfiigurations"><a href="#RespositoryConfigurationExtentionSupport-getRepositoryConfiigurations" class="headerlink" title="RespositoryConfigurationExtentionSupport.getRepositoryConfiigurations"></a>RespositoryConfigurationExtentionSupport.getRepositoryConfiigurations</h4><ul><li>取得 Repository 配置</li></ul><h4 id="JpaRepositoryFactory-getTargetRepository"><a href="#JpaRepositoryFactory-getTargetRepository" class="headerlink" title="JpaRepositoryFactory.getTargetRepository"></a>JpaRepositoryFactory.getTargetRepository</h4><ul><li>创建 Repository</li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Spring JPA Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>my neovim</title>
     <link href="/2023/06/07/my-neovim/"/>
     <url>/2023/06/07/my-neovim/</url>
@@ -46,7 +65,7 @@
     <link href="/2023/05/28/markdown-learning/"/>
     <url>/2023/05/28/markdown-learning/</url>
     
-    <content type="html"><![CDATA[<div align=center><img src="https://api.iconify.design/logos:markdown.svg" width="300" align=center></div><hr><p>建议使用-来标记无序列表，因为*容易跟粗体和斜体混淆，而+不流行，因此推荐使用-：</p><ul><li>无序列表1</li><li>无序列表2</li></ul><hr><ol><li>有序列表1</li><li>有序列表2</li></ol><p>“ - [ ] “</p><ul><li><input disabled="" type="checkbox"> 看电影</li><li><input disabled="" type="checkbox"> 看小说</li><li><input disabled="" type="checkbox"> 看漫画</li></ul><p><u>这段文字有下划线<u></u></p><p>&#x3D;&#x3D;高亮的内容&#x3D;&#x3D;前后分别使用两个&#x3D;包裹</p><!--我是注释--><p>在typora中，可以自动获取文章的标题来生成目录，当标题修改时，目录会随之自动更新，使用起来非常方便，其使用语法如下。</p><p>( [TOC] )</p><ol><li><p>TOC是Table of Contents的缩写</p></li><li><p>在想插入的位置输入[TOC]，按回车键就可以自动生成文章的目录。</p></li></ol><hr>]]></content>
+    <content type="html"><![CDATA[<div align=center><img src="https://api.iconify.design/logos:markdown.svg" width="300" align=center></div><hr><ul><li>无序列表1</li><li>无序列表2</li></ul><hr><ol><li>有序列表1</li><li>有序列表2</li></ol><hr><ul><li><input disabled="" type="checkbox"> 看电影</li><li><input disabled="" type="checkbox"> 看小说</li><li><input disabled="" type="checkbox"> 看漫画</li></ul><hr><p><u>下划线</u></p><hr><table><thead><tr><th>a</th><th>b</th><th>c</th></tr></thead><tbody><tr><td>d</td><td>e</td><td>f</td></tr><tr><td>h</td><td>i</td><td>j</td></tr><tr><td>k</td><td>l</td><td>m</td></tr></tbody></table><hr>]]></content>
     
     
     
